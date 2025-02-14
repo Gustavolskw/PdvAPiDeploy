@@ -16,14 +16,14 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Integer isValid(@Param(value = "productId") Long productId);
 
     @Query(nativeQuery = true, value = """
-        SELECT * FROM cardapioloja.products p
+        SELECT * FROM products p
         WHERE
         (:status IS NULL OR p.status = :status)
         AND (:name IS NULL OR p.name LIKE :name)
         AND (:type IS NULL OR p.type_id = :type)
     """,
             countQuery = """
-        SELECT COUNT(*) FROM cardapioloja.products p
+        SELECT COUNT(*) FROM products p
         WHERE
         (:status IS NULL OR p.status = :status)
         AND (:name IS NULL OR p.name LIKE :name)

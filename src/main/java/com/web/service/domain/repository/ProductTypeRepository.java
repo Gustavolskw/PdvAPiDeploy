@@ -13,7 +13,7 @@ public interface ProductTypeRepository extends JpaRepository<ProductType, Long> 
 
 
     @Query(nativeQuery = true, value = """
-SELECT * FROM cardapioloja.product_type p WHERE p.name LIKE :typeName; 
+SELECT * FROM product_type p WHERE p.name LIKE :typeName; 
 """)
     Optional<List<ProductType>> searchProdcutTypeByItsName(@Param(value = "typeName") String typeName);
 
