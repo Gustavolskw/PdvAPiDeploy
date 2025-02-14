@@ -50,7 +50,7 @@ public class OrderValidationImpl implements OrderValidation {
     public void validateProductOnOrder(Long productId, Long orderId) {
         if(productId==null) throw new ValidationException("Product id deve ser preenchido");
         if(!productRepository.existsById(productId))throw new EntityNotFoundException("Produto inexistente!");
-        if(productRepository.isValid(productId) != 1)throw new OrderProcessError("Produto Inativo!");
+        if(!productRepository.isValid(productId))throw new OrderProcessError("Produto Inativo!");
     }
 
     @Override
