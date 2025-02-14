@@ -11,7 +11,7 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long>, OrderRepositoryCustom {
 
 
-    @Query(nativeQuery = true, value = "SELECT COUNT(id) AS quantidade FROM CARDAPIO_LOJA.orders WHERE table_number = :tableNumber")
+    @Query(nativeQuery = true, value = "SELECT COUNT(id) AS quantidade FROM cardapioloja.orders WHERE table_number = :tableNumber")
     public Integer countTableAmountUsed(@Param(value = "tableNumber") Integer tableNumber);
 
 
